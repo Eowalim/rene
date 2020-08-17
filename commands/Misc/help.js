@@ -52,7 +52,7 @@ module.exports.run = (client, message, args) => {
       },
       {
         name: ":information_source:  Informations",
-        value: `1) En cas de bug veuillez contacter Eowalim en message privé.\n2) Si vous êtes curieux, vous pouvez retorouver le code du bot [ici](https://github.com/Eowalim/René) :wink:.`,
+        value: `1) En cas de bug veuillez contacter Eowalim en message privé.\n2) Si vous êtes curieux, vous pouvez retorouver le code du bot [ici](https://github.com/Eowalim/Rene) :wink:.`,
         inline: false,
       }
     )
