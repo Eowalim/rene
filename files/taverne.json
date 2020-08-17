@@ -1,0 +1,206 @@
+[
+  {
+    "trigger": "sant[e,è]",
+    "possible_answers": ["Santé ${msg.author} ! "],
+    "reactions": "🍺"
+  },
+  {
+    "trigger": "bi[e,è]re",
+    "possible_answers": ["Et une bière pour ${msg.author} ! "],
+    "reactions": "🍺"
+  },
+  {
+    "trigger": "original ?1942",
+    "possible_answers": [
+      "Un Fal Cola Original 1942 pour ${msg.author} ! On reconnaît les connaisseurs !"
+    ],
+    "reactions": "🥤"
+  },
+  {
+    "trigger": "funchy ?2052",
+    "possible_answers": [
+      "Un Funchy 2052 pour ${msg.author} ! Pour avoir plus de fun !"
+    ],
+    "reactions": "🥤"
+  },
+  {
+    "trigger": "original ?1974",
+    "possible_answers": [
+      "Un Fal Cola Original 1974 pour ${msg.author} ! On reconnaît les connaisseurs ! "
+    ],
+    "reactions": "🥤"
+  },
+  {
+    "trigger": "habanero ?1975",
+    "possible_answers": [
+      "Et un Habanero 1975 qui va bien, un ! pour ${msg.author} ! "
+    ],
+    "reactions": "🥤"
+  },
+  {
+    "trigger": "double ?sugar ?1991",
+    "possible_answers": [
+      "La sugarmania a encore frappé ! Un Double Sugar pour ${msg.author} ! "
+    ],
+    "reactions": "🥤"
+  },
+  {
+    "trigger": "diabetotron ?1995",
+    "possible_answers": ["Un Diabetotron pour ${msg.author} ! A deathwish ?! "],
+    "reactions": "🥤"
+  },
+  {
+    "trigger": "orange ?2006",
+    "possible_answers": [
+      "Attention les yeux, un Fal Cola Orange 2006 pour ${msg.author} ! "
+    ],
+    "reactions": "🥤"
+  },
+  {
+    "trigger": "orange ?2009",
+    "possible_answers": [
+      "Attention les yeux, un Fal Cola Orange 2009 pour ${msg.author} ! "
+    ],
+    "reactions": "🥤"
+  },
+  {
+    "trigger": "outrun'84 ?2017",
+    "possible_answers": ["Et un Outrun'84 2017 pour ${msg.author} ! "],
+    "reactions": "🥤"
+  },
+  {
+    "trigger": "midnight ?2045",
+    "possible_answers": ["Et un Midnight 2045 pour ${msg.author} ! "],
+    "reactions": "🥤"
+  },
+  {
+    "trigger": "ofunchyt ?2052",
+    "possible_answers": ["Et un funky Funchy pour ${msg.author} ! "],
+    "reactions": "🥤"
+  },
+  {
+    "trigger": "radiation ?lemon ?2064",
+    "possible_answers": [
+      "LE Radiation Lemon pour 2064 pour ${msg.author} ! Toujours imité, jamais égalé !"
+    ],
+    "reactions": "🥤"
+  },
+  {
+    "trigger": "caf[eé]",
+    "possible_answers": ["Chaud devant ! Un Café pour ${msg.author} ! "],
+    "reactions": "☕"
+  },
+  {
+    "trigger": "th[eé]",
+    "possible_answers": ["Chaud devant ! Un Thé pour ${msg.author} ! "],
+    "reactions": "🍵"
+  },
+  {
+    "trigger": "chocolat ?chaud",
+    "possible_answers": [
+      "Chaud devant ! Un Chocolat chaud pour ${msg.author} ! "
+    ],
+    "reactions": "☕"
+  },
+  {
+    "trigger": "demi",
+    "possible_answers": ["Et un Demi pour ${msg.author} ! "],
+    "reactions": "🍺"
+  },
+  {
+    "trigger": "kebab",
+    "possible_answers": ["Chaud devant ! Un Kebab pour ${msg.author} ! "],
+    "reactions": "🥙"
+  },
+  {
+    "trigger": "[cçÇ]a va ren[é,é]",
+    "possible_answers": [
+      "Très bien et toi ${msg.author} ?",
+      "Nope, j'ai fait la teuf hier soir, j'ai un peu la 🤢, là…",
+      "Yeah !! C'est la teuf 🥳 !",
+      "Chuut ! Je 😴...",
+      "Bof, je suis fauché… T'as pas 10 balles ? 😋",
+      "Chuis pas là, j'ai aqua-poney 😈",
+      "Hé tu vois pas que je joue à FORTNITE ??!",
+      "Ça fait pas 4 fois que tu demandes, toi ?",
+      "Ça irait mieux si on me fichait un peu la paix, mais bon…",
+      "Trop bien ! Je ramasse des bigorneaux !",
+      "Bah mieux que toi, je dirais ! Noraj, hein",
+      "J'ai battu le Moon Lord ! J'ai battu le Moon Lord ! \\o/",
+      "Pas trop, j'ai pris une flèche dans le genou… Je vais finir garde, c'est sûr 😱 ",
+      "Chais pas, j'ai envie de rien aujourd'hui…",
+      "C'est cool que t'arrives, {0.author.mention}, je commençais à m'ennuyer !",
+      "Sekiro est enfin sorti, tout baigne, merci !",
+      "Naaaaan ! Eowalim arrête pas de m'embêter !",
+      "Bah moyen en fait… C'est quand Terraria ??!",
+      "_Parti en vacances_",
+      "Hein ?! Non, je dors pas ! 😝",
+      "Ouiii ! Je reviens de loin ! 😅",
+      "Pas hyper, j'ai croisé les Flamands Roses à Kamyshovo 😔",
+      "Ouep, j'tattends sur Mordhau 😎",
+      "🤣 Mais trop biennnn quoi !!",
+      "Ça dépend… tu vas rester longtemps ?",
+      "Erf ! Demain j'ai mon QUATRième check up… je flippe un peu 😰 !",
+      "Qu'est-ce que tu manges, là ?! Fais croquer !"
+    ],
+    "reactions": "❓"
+  },
+  {
+    "trigger": "^(?!.*pas)ren[eé] ?je ?t'aime",
+    "possible_answers": [
+      "Moi pas trop ${msg.author}",
+      "C'est normal, je suis génial",
+      "Moi aussiiiiiiii ❤",
+      "Hmm… t'approche pas trop !",
+      "Au secours ! J'appelle la police !",
+      "Ouais mais c'est pas toi qui décide ^^"
+    ],
+    "reactions": "❤"
+  },
+  {
+    "trigger": "bigre",
+    "possible_answers": ["Bigre ${msg.author} !"],
+    "reactions": []
+  },
+  {
+    "trigger": "[k,c]anard",
+    "possible_answers": ["Vous avez dit CANARD ?"],
+    "reactions": "🦆"
+  },
+  {
+    "trigger": "bonjour",
+    "possible_answers": [
+      "☀️ Bonjour ${msg.author}, comment vas-tu aujourd'hui ?"
+    ],
+    "reactions": "☀️"
+  },
+  {
+    "trigger": "bonsoir",
+    "possible_answers": [
+      "Bonsoir ${msg.author} j'espère que t'as passé une bonne journée 🌄"
+    ],
+    "reactions": "🌄"
+  },
+  {
+    "trigger": "bonne ?nuit",
+    "possible_answers": ["Bonne nuit ${msg.author} fais de beaux rêves 🌙"],
+    "reactions": "🌙"
+  },
+  {
+    "trigger": "gh",
+    "possible_answers": [],
+    "reactions": ":VargSmile:414056117291974656"
+  },
+  {
+    "trigger": "gold ?hawk",
+    "possible_answers": ["Notre grand maître à tous"],
+    "reactions": ":VargSmile:414056117291974656"
+  },
+  {
+    "trigger": "malades",
+    "possible_answers": [
+      "Sorry ${msg.author}, rétablis-toi bien. Je suis sûr que tu vas surmonter ça. YOU CAN DO IT !!!"
+    ],
+    "reactions": "🤢"
+  }
+]
