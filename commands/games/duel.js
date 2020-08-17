@@ -26,23 +26,23 @@ module.exports.run = (client, message, args) => {
   } else {
     message.channel.send("⚔️ **Duel Fight !** ");
 
-    var lifeP1 = 100;
-    var lifeP2 = 100;
-    var ms1 = null;
-    var ms2 = null;
-    var stop = false;
+    let lifeP1 = 100;
+    let lifeP2 = 100;
+    let ms1 = null;
+    let ms2 = null;
+    let stop = false;
 
     const task = setInterval(() => {
-      var fight = parseInt(Math.random() * 2);
-      var hit = parseInt(Math.random() * 100);
+      const fight = parseInt(Math.random() * 2);
+      const hit = parseInt(Math.random() * 100);
 
-      var par = 100;
+      let par = 100;
       while (par > hit) {
         par = parseInt(Math.random() * 100);
       }
 
+      let hitR = hit - par;
       if (fight == 0) {
-        hitR = hit - par;
         lifeP2 = lifeP2 - hitR;
         if (lifeP2 <= 0) {
           stop = true;
@@ -66,7 +66,6 @@ module.exports.run = (client, message, args) => {
           }
         }
       } else {
-        hitR = hit - par;
         lifeP1 = lifeP1 - hitR;
 
         if (lifeP1 <= 0) {
@@ -112,10 +111,6 @@ module.exports.run = (client, message, args) => {
         }
       );
     return embed;
-
-    //message.channel.send(ATT[parseInt(Math.random() * (ATT.length - 1) + 1)]);
-    //message.delete();
-    //message.channel.send(embed);
   }
 
   function sendEmbedDef(user, l2, par, hit, hitR) {
@@ -148,7 +143,5 @@ module.exports.run = (client, message, args) => {
       .setFooter(`Détails: (${hit} - ${par} -> ${hitR})`);
 
     return embed;
-    //message.delete();
-    //message.channel.send(embed);
   }
 };

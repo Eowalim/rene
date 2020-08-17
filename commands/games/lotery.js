@@ -16,15 +16,15 @@ module.exports.run = (client, message, args) => {
   message.delete();
   const tab = ["🔵", "🔴"];
 
-  var one = parseInt(Math.random() * 2);
-  var two = parseInt(Math.random() * 2);
-  var three = parseInt(Math.random() * 2);
+  const one = parseInt(Math.random() * 2);
+  const two = parseInt(Math.random() * 2);
+  const three = parseInt(Math.random() * 2);
 
   message.channel.send(tab[one] + tab[two] + tab[three]);
 
-  var tot = one + two + three;
+  const tot = one + two + three;
 
-  if (tot == 0 || tot == 3) {
+  if (tot === 0 || tot === 3) {
     message.channel.send(`Félicitation ${message.author}, tu as gagné.`);
   }
 };

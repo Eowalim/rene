@@ -6,37 +6,12 @@ const {
   SALON_TAVERNE,
 } = require("../../config");
 
-const { REPONSE } = require("../../awnser");
-
 const fs = require("fs");
-const path = "./files/taverne.json";
+const pathTaverne = "./files/taverne.json";
+const pathTchat = "./files/tchat.json";
 
 module.exports = (client, msg) => {
-  //René reaction
-
-  if (msg.channel.id === SALON_TAVERNE) {
-    if (!msg.author.bot) {
-      fs.readFile(path, (err, data) => {
-        if (err) throw err;
-        var objectValue = JSON.parse(data);
-        var msgform = msg.content.toLowerCase();
-        for (let i = 0; i < objectValue.length; i++) {
-          var re = new RegExp(objectValue[i].trigger);
-          if (msgform.match(re)) {
-            var rep =
-              objectValue[i].possible_answers[
-                parseInt(
-                  Math.random() * (objectValue[i].possible_answers.length - 1)
-                )
-              ];
-            msg.channel.send(rep.replace("${msg.author}", msg.author));
-            msg.react(objectValue[i].reactions);
-          }
-        }
-      });
-    }
-  }
-
+  //Messages
   if (msg.channel.id === SALON_GRR) {
     msg.react("😡");
   }
@@ -45,19 +20,46 @@ module.exports = (client, msg) => {
     msg.react("😄");
   }
 
+  //Awnser of René
+  if (msg.channel.id === SALON_TAVERNE) {
+    if (!msg.author.bot) {
+      fs.readFile(pathTaverne, (err, data) => {
+        if (err) throw err;
+        const tav = JSON.parse(data);
+        const msgform = msg.content.toLowerCase();
+        for (let i = 0; i < tav.length; i++) {
+          const re = new RegExp(tav[i].trigger);
+          if (msgform.match(re)) {
+            const rep = tav[i].possible_answers[parseInt(Math.random() * (tav[i].possible_answers.length - 1))];
+            msg.channel.send(rep.replace("${msg.author}", msg.author));
+            msg.react(tav[i].reactions);
+          }
+        }
+      });
+    }
+  }
+
   if (msg.channel.id === SALON_TCHAT) {
     if (msg.content.includes("🎱")) {
-      msg.channel.send(REPONSE[parseInt(Math.random() * (REPONSE.length - 1))]);
+      fs.readFile(pathTchat, (err, data) => {
+        if (err) throw err;
+        const file = JSON.parse(data);
+        for (let i = 0; i < file.length; i++) {
+          const rep = file[i].possible_answers[parseInt(Math.random() * (file[i].possible_answers.length - 1))];
+          msg.channel.send(rep);
+        }
+      });
     }
   }
 
   if (msg.channel.id === SALON_TAVERNE) {
-    var msg1 = msg.content.toLowerCase();
+    const msg1 = msg.content.toLowerCase();
     if (msg1.includes("carte")) {
     }
   }
 
-  //Checking the command structure
+
+  //Commands
   if (!msg.content.startsWith(PREFIX) || msg.author.bot) return;
   const args = msg.content.slice(PREFIX.length).split(/ +/);
   const commandName = args.shift().toLowerCase();
@@ -73,18 +75,18 @@ module.exports = (client, msg) => {
       }
     });
     return msg.channel.send(
-      `${msg.author}, la commande n'est permisse que dans le salon ${goodChannel}`
+        `${msg.author}, la commande n'est permisse que dans le salon ${goodChannel}`
     );
   }
 
   if (
-    command.help.usePerm &&
-    !msg.guild
-      .member(msg.author)
-      .roles.cache.some((role) => role.id === command.help.permission)
+      command.help.usePerm &&
+      !msg.guild
+          .member(msg.author)
+          .roles.cache.some((role) => role.id === command.help.permission)
   ) {
     return msg.channel.send(
-      `${msg.author}, tu n'as pas la permission requise pour exécuter cette commande !`
+        `${msg.author}, tu n'as pas la permission requise pour exécuter cette commande !`
     );
   }
 
