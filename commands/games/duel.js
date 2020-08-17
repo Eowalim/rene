@@ -1,4 +1,4 @@
-const { SALON_GAMES, PREFIX, ATT } = require("../../config.js");
+const { SALON_GAMES } = require("../../config.js");
 const { MessageEmbed } = require("discord.js");
 
 module.exports.help = {
@@ -42,7 +42,7 @@ module.exports.run = (client, message, args) => {
       }
 
       let hitR = hit - par;
-      if (fight == 0) {
+      if (fight === 0) {
         lifeP2 = lifeP2 - hitR;
         if (lifeP2 <= 0) {
           stop = true;
@@ -78,7 +78,6 @@ module.exports.run = (client, message, args) => {
             ms1.then((msg) => {
               ms1 = msg.edit(sendEmbedAtt(target, lifeP2, hit));
             });
-
             ms2.then((msg) => {
               ms2 = msg.edit(sendEmbedDef(player, lifeP1, par, hit, hitR));
             });
@@ -94,54 +93,51 @@ module.exports.run = (client, message, args) => {
   }
 
   function sendEmbedAtt(user, l1, hit) {
-    const embed = new MessageEmbed()
-      .setColor("#e74c3c")
-      .setTitle("⚔️ Attaque")
-      .setThumbnail(`${user.displayAvatarURL()}`)
-      .addFields(
-        {
-          name: "❤️ Vie:",
-          value: `${l1}/100`,
-          inline: false,
-        },
-        {
-          name: "🗡️ Infligés: ",
-          value: `${hit}`,
-          inline: false,
-        }
-      );
-    return embed;
+    return new MessageEmbed()
+        .setColor("#e74c3c")
+        .setTitle("⚔️ Attaque")
+        .setThumbnail(`${user.displayAvatarURL()}`)
+        .addFields(
+            {
+              name: "❤️ Vie:",
+              value: `${l1}/100`,
+              inline: false,
+            },
+            {
+              name: "🗡️ Infligés: ",
+              value: `${hit}`,
+              inline: false,
+            }
+        );
   }
 
   function sendEmbedDef(user, l2, par, hit, hitR) {
-    const embed = new MessageEmbed()
-      .setColor("#3498db")
-      .setTitle("🛡️ Défend")
-      .setThumbnail(`${user.displayAvatarURL()}`)
-      .addFields(
-        {
-          name: "❤️ Vie:",
-          value: `${l2}/100`,
-          inline: false,
-        },
-        {
-          name: "🗡️ Subit: ",
-          value: `${hit}`,
-          inline: true,
-        },
-        {
-          name: "🛡️ Bloqué: ",
-          value: `${par}`,
-          inline: true,
-        },
-        {
-          name: "💔 PDV retirés: ",
-          value: `${hitR}`,
-          inline: true,
-        }
-      )
-      .setFooter(`Détails: (${hit} - ${par} -> ${hitR})`);
-
-    return embed;
+    return new MessageEmbed()
+        .setColor("#3498db")
+        .setTitle("🛡️ Défend")
+        .setThumbnail(`${user.displayAvatarURL()}`)
+        .addFields(
+            {
+              name: "❤️ Vie:",
+              value: `${l2}/100`,
+              inline: false,
+            },
+            {
+              name: "🗡️ Subit: ",
+              value: `${hit}`,
+              inline: true,
+            },
+            {
+              name: "🛡️ Bloqué: ",
+              value: `${par}`,
+              inline: true,
+            },
+            {
+              name: "💔 PDV retirés: ",
+              value: `${hitR}`,
+              inline: true,
+            }
+        )
+        .setFooter(`Détails: (${hit} - ${par} -> ${hitR})`);
   }
 };

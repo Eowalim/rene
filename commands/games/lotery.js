@@ -1,4 +1,4 @@
-const { SALON_GAMES, PREFIX } = require("../../config.js");
+const { SALON_GAMES } = require("../../config.js");
 
 module.exports.help = {
   name: "lotery",
