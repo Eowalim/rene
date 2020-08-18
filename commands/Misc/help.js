@@ -27,12 +27,12 @@ module.exports.run = (client, message, args) => {
       },
       {
         name: "Salon: 💬-▎tchat-avec-rene",
-        value: `Tu veux discuter avec René ? Alors c'est ici pour cela utilse 🎱 dans ton message.`,
+        value: `Tu veux discuter avec René ? Alors c'est ici, pour cela utilse 🎱 dans ton message.`,
         inline: false,
       },
       {
         name: "Salon: 🎲-▎mini-Jeux:",
-        value: `\`${PREFIX}lotery\`: Permet de jouer à une sorte de loterie.\n\`${PREFIX}duel @user\`: Permet de lancer un duel entre toi et un utilisateur.`,
+        value: `\`${PREFIX}lotery\`: Permet de jouer à un jeu de hasard.\n\`${PREFIX}duel @user\`: Permet de lancer un duel entre toi et un utilisateur.`,
         inline: false,
       },
       {
