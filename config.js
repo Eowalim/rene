@@ -1,4 +1,4 @@
-exports.TOKEN = "NzE2NzI5NTE4NDY3MDU1Njc3.XtQAYQ.C1xk2NtSZvg6E2BZhRlkff2Mzm4";
+exports.TOKEN = "";
 exports.PREFIX = "!";
 
 //Salons
