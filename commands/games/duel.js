@@ -14,6 +14,7 @@ module.exports.help = {
 };
 
 module.exports.run = (client, message) => {
+  message.delete();
   const player = message.author;
   const target = message.mentions.users.first();
 
@@ -28,7 +29,7 @@ module.exports.run = (client, message) => {
   }
 
   else {
-    message.channel.send("⚔️ **Duel Fight !** ");
+    message.channel.send("⚔️**Duel Fight !**");
 
     var lifeP1 = 100, lifeP2  = 100;
     var ms1 = null, ms2 = null;

@@ -13,7 +13,7 @@ module.exports.help = {
 };
 
 module.exports.run = (client, message) => {
-
+    message.delete();
     const player1 = message.author;
     const player2 = message.mentions.users.first();
 
@@ -48,29 +48,63 @@ module.exports.run = (client, message) => {
             collector.on('collect', (reaction, user) => {
                 if (!user.bot) {
                     if(user === actualPlayer){
-                        if(actualPlayer === player1) place(reaction, '❌', actualPlayer);
-                        if(actualPlayer === player2) place(reaction, '⭕', actualPlayer);
-                        msg.edit(editGrid());
-                        map = getMap(emoji, grille);
+                        if(!caseAlreadyUse(reaction)){
+                            if(user === player1) place(reaction, '❌');
+                            if(user === player2) place(reaction, '⭕');
+                            msg.edit(editGrid());
+                            map = getMap(emoji, grille);
+                            if(win(actualPlayer)){
+                               collector.stop();
+                            } else{
+                                nextPlayer(actualPlayer);
+                            }
+                        } else {
+                            message.channel.send(`${actualPlayer}, cette case est déjà utilisée.`);
+                        }
                     }
                 }
             })
         });
     }
 
-    function win(grille) {
+    function win(player) {
         // horizontal
         for (let i = 0; i < 3; i++) {
-            if (grille[i][0] === grille[i][1] === grille[i][2]) {
-                message.channel.send(grille[i][0]);
+            if ((grille[i][0] === '❌' &&  grille[i][1] === '❌' && grille[i][2] ==='❌') || (grille[i][0] === '⭕' &&  grille[i][1] === '⭕' && grille[i][2] ==='⭕')) {
+                message.channel.send(`🏆 ${player}, a gagné la partie.`);
+                return true;
             }
         }
 
         // Vertical
         for (let i = 0; i < 3; i++) {
-            if (grille[0][i] === grille[1][i] === grille[2][i]) {
-                message.channel.send(grille[0][i]);
+            if ((grille[0][i] === '❌' && grille[1][i] === '❌' && grille[2][i] === '❌') || (grille[0][i] === '⭕' && grille[1][i] === '⭕' && grille[2][i] === '⭕')) {
+                message.channel.send(`🏆 ${player}, a gagné la partie.`);
+                return true;
             }
+        }
+
+        // Diagonal
+        if ((grille[0][0] === '❌' && grille[1][1] === '❌' && grille[2][2] === '❌')|| (grille[0][0] === '⭕' && grille[1][1] === '⭕' && grille[2][2] === '⭕')) {
+            message.channel.send(`🏆 ${player}, a gagné la partie.`);
+            return true;
+        }
+        if ((grille[2][0] === '❌' && grille[1][1] === '❌' && grille[0][2] === '❌')|| (grille[2][0] === '⭕' && grille[1][1] === '⭕' && grille[0][2] === '⭕')) {
+            message.channel.send(`🏆 ${player}, a gagné la partie.`);
+            return true;
+        }
+
+        var ctp = 0;
+        for (let x = 0 ; x < 3; x++){
+            for (let y = 0 ; y < 3; y++){
+                if(grille[x][y] !== '◻'){
+                    ctp = ctp + 1;
+                }
+            }
+        }
+        if(ctp === 9){
+            message.channel.send(`Match nul, personne n'a gagné.`);
+            return true;
         }
     }
 
@@ -92,6 +126,7 @@ module.exports.run = (client, message) => {
         } else if (actualPlayer === player2){
             actualPlayer = player1;
         }
+
         msgPlay.then(msg => {
             msgPlay = msg.edit(`- 🔄 ${actualPlayer}**, c'est à toi de jouer.**`);
         })
@@ -111,8 +146,11 @@ module.exports.run = (client, message) => {
             || user === player2;
     }
 
-    function place(reaction, playerEmoji, player) {
-       if(map.get(reaction.emoji.name) === '◻'){
+    function caseAlreadyUse(reaction) {
+        return map.get(reaction.emoji.name) !== '◻';
+    }
+
+    function place(reaction, playerEmoji) {
            switch (reaction.emoji.name) {
                case '1️⃣': grille[0][0] = playerEmoji;
                    break;
@@ -133,12 +171,7 @@ module.exports.run = (client, message) => {
                case '9️⃣': grille[2][2] = playerEmoji;
                    break;
            }
-           win(grille);
-           nextPlayer();
-       } else {
-           message.channel.send(`${player}, cette case est déjà utilisée.`);
        }
-    }
 
 
     function editGrid() {

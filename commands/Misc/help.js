@@ -32,7 +32,7 @@ module.exports.run = (client, message, args) => {
       },
       {
         name: "Salon: 🎲-▎mini-Jeux:",
-        value: `\`${PREFIX}lotery\`: Permet de jouer à un jeu de hasard.\n\`${PREFIX}duel @user\`: Permet de lancer un duel entre toi et un utilisateur.`,
+        value: `\`${PREFIX}lotery\`: Permet de jouer à un jeu de hasard.\n\`${PREFIX}duel @user\`: Permet de lancer un duel entre toi et un utilisateur. \n\`${PREFIX}morpion @user\`: Permet de faire une partie de morpion contre un membre du discord.`,
         inline: false,
       },
       {
