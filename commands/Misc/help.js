@@ -21,6 +21,11 @@ module.exports.run = (client, message, args) => {
     .setThumbnail(`${client.user.displayAvatarURL()}`)
     .addFields(
       {
+        name: "Salon: 📰-▎pubs:",
+        value: `\`${PREFIX}pub <message>\`: Permet de faire une demande de pub.`,
+        inline: false,
+      },
+      {
         name: "Salon: 🤖-▎bot:",
         value: `\`${PREFIX}help\`: Donne la fiche du bot.`,
         inline: false,
