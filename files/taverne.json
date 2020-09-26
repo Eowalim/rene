@@ -108,6 +108,11 @@
     "reactions": "🍺"
   },
   {
+    "trigger": "pinte",
+    "possible_answers": ["Et une Pinte pour ${msg.author} ! "],
+    "reactions": "🍺"
+  },
+  {
     "trigger": "kebab",
     "possible_answers": ["Chaud devant ! Un Kebab pour ${msg.author} ! "],
     "reactions": "🥙"

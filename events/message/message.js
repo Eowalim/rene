@@ -1,5 +1,6 @@
 const { PREFIX, SALON_GRR, SALON_YES, SALON_TCHAT, SALON_TAVERNE } = require("../../config");
 const fs = require("fs");
+const { MessageEmbed } = require("discord.js");
 
 //JSON files
 const pathTaverne = "./files/taverne.json";
@@ -20,7 +21,7 @@ module.exports = (client, msg) => {
     if (!msg.author.bot) {
       const msgform = msg.content.toLowerCase();
       if (msgform.includes("carte")) {
-        //TODO
+        msg.channel.send(embedCart());
       } else {
         fs.readFile(pathTaverne, (err, data) => {
           if (err) throw err;
@@ -79,4 +80,29 @@ module.exports = (client, msg) => {
     return msg.channel.send(noArgsReplay);
   }
   command.run(client, msg, args);
+
+
+  function embedCart() {
+    return new MessageEmbed()
+        .setColor("#f39c12")
+        .setTitle("Carte")
+        .setThumbnail("https://cdn.discordapp.com/attachments/717084106030317588/759001930763599872/beer-sign-shop-brewery-512.png")
+        .addFields(
+            {
+              name: "🥤  Boissons: ",
+              value: `- Original 1942\n- Funchy 2052\n- Original 1974\n- Habanero 1975\n- Double Sugar 1991\n- Diabetotron 1995\n- Orange 2006\n- Orange 2009\n- Outrun'84 2017\n- Midnight 2045\n- Radiation Lemon 2064\n- Ofunchyt 2052\n\n- Café\n- Thé\n- Chocolat cahaud`,
+              inline: true,
+            },
+            {
+              name: "🍺  Alcools: ",
+              value: `- Bière\n- Demi\n- Pinte`,
+              inline: true,
+            },
+            {
+              name: "🍔  Nourritures: ",
+              value: `- Kebab`,
+              inline: true,
+            },
+        );
+  }
 };

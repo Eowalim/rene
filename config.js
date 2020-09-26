@@ -2,12 +2,12 @@ exports.TOKEN = "";
 exports.PREFIX = "!";
 
 //Salons
-exports.SALON_BOT = "562394254811463707";
-exports.SALON_GRR = "562395596317524011";
-exports.SALON_YES = "562392613932630076";
-exports.SALON_TCHAT = "632612046847868978";
-exports.SALON_GAMES = "716736539496808668";
-exports.SALON_TAVERNE = "568534370164408330";
-exports.SALON_PUB = "699742990691860520";
-exports.SALON_STAFF = "757982287261466795";
-exports.ROLE_STAFF = "562386697174646787";
+exports.SALON_BOT = "";
+exports.SALON_GRR = "";
+exports.SALON_YES = "";
+exports.SALON_TCHAT = "";
+exports.SALON_GAMES = "";
+exports.SALON_TAVERNE = "";
+exports.SALON_PUB = "";
+exports.SALON_STAFF = "";
+exports.ROLE_STAFF = "";
